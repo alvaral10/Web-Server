@@ -1,0 +1,21 @@
+{
+  "name": "restful-api-mysql",
+  "version": "1.0.0",
+  "description": "Example test app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.22"
+  }
+}
