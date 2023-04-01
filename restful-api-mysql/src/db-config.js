@@ -26,9 +26,14 @@ con.connect(function(err) {
   if (err) throw err;
   console.log('Connected!');
 
-  con.query(queries.CREATE_TASKS_TABLE, function(err, result) {
+  con.query(authQueries.CREATE_USERS_TABLE, function(err, result) {
     if (err) throw err;
     console.log('Table created or exists already!');
+  });
+
+  con.query(taskQueries.CREATE_TASKS_TABLE, function(err, result) {
+    if (err) throw err;
+    console.log('Tasks table created or exists already!');
   });
 });
 
