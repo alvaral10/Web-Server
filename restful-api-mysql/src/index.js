@@ -11,9 +11,12 @@ const middleware = require('./middleware/errors.middleware');
 const app = express();
 const port = process.env.PORT || 3000;
 const logLevel = process.env.LOG_LEVEL || 'dev';
+const env = process.env.NODE.ENV;
 
 // Middleware - logs server requests to console
-app.use(logger(logLevel));
+if (env != 'test'){
+  app.use(logger(logLevel));
+}
 
 // Middleware - parses incoming requests data (https://github.com/expressjs/body-parser)
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -28,8 +31,8 @@ app.use(cors());
 
 // Partial API endpoints
 app.use('/api/auth', authRoutes); // http://localhost:3000/api/auth
-app.use('/api/user', authRoutes); // http://localhost:3000/api/users
-app.use('/api/tasks', authRoutes); // http://localhost:3000/api/tasks
+app.use('/api/user', userRoutes); // http://localhost:3000/api/users
+app.use('/api/tasks', tasksRoutes); // http://localhost:3000/api/tasks
 
 
 // Handle 404 requests

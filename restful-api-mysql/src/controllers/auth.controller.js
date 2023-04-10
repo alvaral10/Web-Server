@@ -89,7 +89,7 @@ exports.updateUser = function(req, res){
             // perform update
             con.query(
                 authQueries.UPDATE_USER,
-                [req.body.username, req.body.email, passwordHash, user[0].id],
+                [req.body.username, req.body.email, passwordHash, user.id],
                 function(err, result){
                     if (err){
                         console.log(err);
